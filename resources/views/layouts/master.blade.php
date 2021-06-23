@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--  
+    <!--
     Document Title
     =============================================
     -->
     <title>@yield('title')</title>
-    <!--  
+    <!--
     Favicons
     =============================================
     -->
@@ -30,10 +30,10 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <!--  
+    <!--
     Stylesheets
     =============================================
-    
+
     -->
     <!-- Default stylesheets-->
     <link href="{{asset('assets/lib/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -61,7 +61,7 @@
       <!-- Nav Part Start -->
         @include('partials.header')
        <!-- NAv part end -->
-      
+
       @yield('content')
 
       <!-- Footer PArt Start -->
@@ -70,7 +70,7 @@
       </div>
       <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
     </main>
-    <!--  
+    <!--
     JavaScripts
     =============================================
     -->

@@ -153,7 +153,7 @@
                   <li><a href="#">Login</a></li>
                   <li><a href="#">Register</a></li>
                 </ul> --}}
-                <ul class="dropdown-menu ml-auto" role="menu">
+                <ul class="dropdown-menu ml-auto">
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))

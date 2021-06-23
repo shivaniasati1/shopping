@@ -226,7 +226,7 @@
             </div>
           </div>
         </section>
-        <section class="module-small bg-dark p-0">
+        {{-- <section class="module-small bg-dark p-0">
           <div class="container">
             <div class="row client">
               <div class="owl-carousel text-center" data-items="6" data-pagination="false" data-navigation="false">
@@ -278,7 +278,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> --}}
         <section class="module" id="services">
           <div class="container">
             <div class="row">
