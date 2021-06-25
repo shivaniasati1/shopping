@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="{{asset('adminassets/img/favicon.png')}}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Material Dashboard by Creative Tim
+    @yield('title')
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -15,10 +15,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="{{asset('adminassets/css/material-dashboard.css')}}" rel="stylesheet" />
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{asset('adminassets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-  <link rel="stylesheet" href="{{asset('adminassets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
-  {{-- <link rel="stylesheet" href="{{asset('adminassets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}"> --}}
 
 </head>
 
@@ -66,10 +62,10 @@
 <!-- Bootstrap 4 -->
 {{-- <script src="{{asset('adminassets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script> --}}
 <!-- DataTables  & Plugins -->
-<script src="{{asset('adminassets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('adminassets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-<script src="{{asset('adminassets/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{asset('adminassets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+{{-- <script src="{{asset('adminassets/plugins/datatables/jquery.dataTables.min.js')}}"></script> --}}
+{{-- <script src="{{asset('adminassets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script> --}}
+{{-- <script src="{{asset('adminassets/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script> --}}
+{{-- <script src="{{asset('adminassets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script> --}}
 {{-- <script src="{{asset('adminassets/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
 <script src="{{asset('adminassets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
 <script src="{{asset('adminassets/plugins/jszip/jszip.min.js')}}"></script>
@@ -78,8 +74,17 @@
 <script src="{{asset('adminassets/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
 <script src="{{asset('adminassets/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('adminassets/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script> --}}
-
+{{-- <script src="{{asset('adminassets/js/jquery-latest.min.js')}}"></script> --}}
 <script>
+    $(function(){
+      $("#fileupload").change(function(event) {
+        var x = URL.createObjectURL(event.target.files[0]);
+        $("#upload-img").attr("src",x);
+        console.log(event);
+      });
+    })
+</script>
+{{-- <script>
   $(function () {
     $('#example2').DataTable({
       "paging": true,
@@ -91,7 +96,7 @@
       "responsive": true,
     });
   });
-</script>
+</script> --}}
 <script>
     $(document).ready(function() {
       $().ready(function() {

@@ -92,25 +92,25 @@
         <div class="sidebar-wrapper">
           <ul class="nav">
             <li class="nav-item active  ">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('admin.home')}}">
                 <i class="material-icons">dashboard</i>
                 <p>Dashboard</p>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{{route('admin.profile')}}">
                 <i class="material-icons">person</i>
-                <p>User Profile</p>
+                <p>Admin Profile</p>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="#">
-                <i class="material-icons">person</i>
+              <a class="nav-link" href="{{route('admin.addbanner')}}">
+                <i class="material-icons">content_copy</i>
                 <p>Banner</p>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="{{route('admin.addblog')}}">
+              <a class="nav-link" href="{{route('admin.blogs')}}">
                 <i class="material-icons">library_books</i>
                 <p>Blogs</p>
               </a>
@@ -130,7 +130,7 @@
 
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link" data-toggle="dropdown">
-                  <i class="material-icons">person</i>
+                  <i class="material-icons">shopping_cart</i>
                   <p>
                     Products
                     {{-- <i class="right fas fa-angle-left"></i> --}}
@@ -138,12 +138,12 @@
                 </a>
                 <ul class="nav dropdown-menu">
                   <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{route('admin.mens')}}" class="nav-link">
                       <p>men</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{route('admin.womens')}}" class="nav-link">
                       <p>women</p>
                     </a>
                   </li>
@@ -151,14 +151,14 @@
                 </ul>
               </li>
             <li class="nav-item ">
-              <a class="nav-link" href="#">
-                <i class="material-icons">location_ons</i>
+              <a class="nav-link" href="{{route('admin.news')}}">
+                <i class="material-icons">article</i>
                 <p>News</p>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="#">
-                <i class="material-icons">notifications</i>
+              <a class="nav-link" href="{{route('admin.addlogos')}}">
+                <i class="material-icons">bubble_chart</i>
                 <p>Client Logo</p>
               </a>
             </li>

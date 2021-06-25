@@ -1,4 +1,5 @@
 @extends('layouts.adminapp')
+@section('title','Dashboard')
 
 @section('content')
 {{-- <div class="container">
@@ -17,21 +18,36 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header- card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">person</i>
+                </div>
+                <a class="card-category"  href="{{route('admin.profile')}}">Admin Profile</a>
+                <h3 class="card-title">1</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">date_range</i> Last 24 Hours
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
             <div class="card-header card-header-warning card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Used Space</p>
-              <h3 class="card-title">49/50
-                <small>GB</small>
+              <a class="card-category" href="{{route('admin.addbanner')}}">Banners</a>
+              <h3 class="card-title">
+                <small>10</small>
               </h3>
             </div>
             <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a href="javascript:;">Get More Space...</a>
-              </div>
+                <div class="stats">
+                    <i class="material-icons">date_range</i> Last 24 Hours
+                </div>
             </div>
           </div>
         </div>
@@ -39,9 +55,9 @@
           <div class="card card-stats">
             <div class="card-header card-header-success card-header-icon">
               <div class="card-icon">
-                <i class="material-icons">store</i>
+                <i class="material-icons">library_books</i>
               </div>
-              <p class="card-category">Revenue</p>
+              <a class="card-category"  href="{{route('admin.blogs')}}">Blogs</a>
               <h3 class="card-title">$34,245</h3>
             </div>
             <div class="card-footer">
@@ -53,11 +69,11 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-header card-header-danger card-header-icon">
+            <div class="card-header card-header-primary card-header-icon">
               <div class="card-icon">
-                <i class="material-icons">info_outline</i>
+                <i class="material-icons">shopping_bag</i>
               </div>
-              <p class="card-category">Fixed Issues</p>
+              <a class="card-category"  href="{{route('admin.mens')}}">Mens Products</a>
               <h3 class="card-title">75</h3>
             </div>
             <div class="card-footer">
@@ -68,12 +84,28 @@
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-danger card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">shopping_cart</i>
+                </div>
+                <a class="card-category"  href="{{route('admin.womens')}}">Womens Products</a>
+                <h3 class="card-title">75</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">local_offer</i> Tracked from Github
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
             <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
-                <i class="fa fa-twitter"></i>
+                <i class="material-icons">article</i>
               </div>
-              <p class="card-category">Followers</p>
+              <a class="card-category"  href="{{route('admin.news')}}">News</a>
               <h3 class="card-title">+245</h3>
             </div>
             <div class="card-footer">
@@ -83,6 +115,22 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-secondary card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">bubble_chart</i>
+                </div>
+                <a class="card-category"  href="{{route('admin.addlogos')}}">Client Logos</a>
+                <h3 class="card-title">+245</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">update</i> Just Updated
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
       <!-- <div class="row">
         <div class="col-md-4">

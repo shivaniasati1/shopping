@@ -6,12 +6,8 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function adminblogs()
+    public function profiles()
     {
-        return view('admin.blog');
-    }
-    public function addblogs()
-    {
-        return view('admin.addblog');
+        return view('admin.adminprofile');
     }
 }

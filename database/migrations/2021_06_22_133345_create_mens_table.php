@@ -17,8 +17,8 @@ class CreateMensTable extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->string('name', 100);
-            $table->string('categories');
-            $table->integer('price');
+            $table->string('categories')->nullable();
+            $table->integer('price')->nullable();
             $table->string('additional')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
