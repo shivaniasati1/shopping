@@ -16,6 +16,8 @@ class CreateBannerTable extends Migration
         Schema::create('banner', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->string('link')->nullable();
+            $table->smallInteger('sequence')->nullable();
             $table->timestamps();
         });
     }

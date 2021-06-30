@@ -98,19 +98,19 @@
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="{{route('admin.profile')}}">
+              <a class="nav-link" href="{{route('profile.index')}}">
                 <i class="material-icons">person</i>
                 <p>Admin Profile</p>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="{{route('admin.addbanner')}}">
+              <a class="nav-link" href="{{route('banner.index')}}">
                 <i class="material-icons">content_copy</i>
                 <p>Banner</p>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="{{route('admin.blogs')}}">
+              <a class="nav-link" href="{{route('blog.ind')}}">
                 <i class="material-icons">library_books</i>
                 <p>Blogs</p>
               </a>
@@ -138,12 +138,12 @@
                 </a>
                 <ul class="nav dropdown-menu">
                   <li class="nav-item">
-                    <a href="{{route('admin.mens')}}" class="nav-link">
+                    <a href="{{route('men.index')}}" class="nav-link">
                       <p>men</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{route('admin.womens')}}" class="nav-link">
+                    <a href="{{route('women.index')}}" class="nav-link">
                       <p>women</p>
                     </a>
                   </li>
@@ -157,7 +157,7 @@
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="{{route('admin.addlogos')}}">
+              <a class="nav-link" href="{{route('client.index')}}">
                 <i class="material-icons">bubble_chart</i>
                 <p>Client Logo</p>
               </a>

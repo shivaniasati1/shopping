@@ -16,6 +16,7 @@ class CreateClientlogoTable extends Migration
         Schema::create('clientlogo', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
+            $table->string('link', 100)->nullable();
             $table->timestamps();
         });
     }

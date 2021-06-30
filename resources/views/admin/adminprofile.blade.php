@@ -12,7 +12,8 @@
               <p class="card-category">Complete your profile</p>
             </div>
             <div class="card-body">
-              <form>
+              <form action="{{route('profile.store')}}" method="POST" enctype="multipart/form-data">
+                  @csrf
                 <div class="row">
                   <div class="col-md-5">
                     <div class="form-group">
@@ -36,7 +37,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="bmd-label-floating">Fist Name</label>
+                      <label class="bmd-label-floating">First Name</label>
                       <input type="text" name="first_name" class="form-control">
                     </div>
                   </div>

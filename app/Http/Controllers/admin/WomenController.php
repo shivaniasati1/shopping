@@ -4,21 +4,29 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Women;
 
 class WomenController extends Controller
 {
+    public function __construct(Women $women)
+    {
+        $this->women = $women;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function womens()
-    {
-        return view('admin.womens.women');
-    }
+
     public function index()
     {
-        return view('admin.womens.addwomen');
+        try {
+            $data = $this->women->get();
+            return view('admin.womens.women', compact('data'));
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -28,7 +36,11 @@ class WomenController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            return view('admin.womens.addwomen');
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -39,7 +51,19 @@ class WomenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $data1 = $request->only('composition', 'size', 'color', 'brand');
+            // dd($data);
+            $request['additional'] = json_encode($data1);
+
+            $imagename = $request->images->getClientOriginalName();
+            $request->images->move(public_path('assets/images/shop'), $imagename);
+            $request['image'] = $imagename;
+            $this->women->create($request->except('_token', 'images', 'composition', 'size', 'color', 'brand'));
+            return redirect()->route('women.index');
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -61,7 +85,12 @@ class WomenController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $women = $this->women->find($id);
+            return view('admin.womens.addwomen', compact('women'));
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -73,7 +102,17 @@ class WomenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            if ($request->hasFile('images')) {
+                $imagename = $request->images->getClientOriginalName();
+                $request->images->move(public_path('assets/images/shop'), $imagename);
+                $request['image'] = $imagename;
+            }
+            $this->women->find($id)->update($request->except("_token", "images", 'composition', 'size', 'color', 'brand'));
+            return redirect()->route('women.index');
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -84,6 +123,11 @@ class WomenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->women->find($id)->delete();
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 }

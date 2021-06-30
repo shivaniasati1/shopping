@@ -4,25 +4,23 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\OurNews;
+use App\Models\Profile;
 
-class NewsController extends Controller
+class ProfileController extends Controller
 {
-    public function __construct(OurNews $ournews)
+    public function __construct(Profile $profile)
     {
-        $this->ournews = $ournews;
+        $this->profile = $profile;
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         try {
-            $data = $this->ournews->get();
-            return view('admin.news.news', ['alldata' => $data]);
+            return view('admin.adminprofile');
         } catch (\Exception $e) {
             return redirect()->back();
         }
@@ -35,7 +33,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.addnews');
+        //
     }
 
     /**
@@ -47,11 +45,8 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         try {
-            $imageName = $request->images->getClientOriginalName();
-            $request->images->move(public_path('adminassets/img'), $imageName);
-            $request['image'] = $imageName;
-            $this->ournews->create($request->except("_token", "images"));
-            return redirect()->route('admin.news');
+            $this->profile->create($request->except("_token"));
+            return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back();
         }
@@ -76,12 +71,8 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        try {
-            $news = OurNews::find($id);
-            return view('admin.news.addnews', compact('news'));
-        } catch (\Exception $e) {
-            return redirect()->back();
-        }
+        // $profiles = $this->profile->find($id);
+        // return view('admin.adminProfile', compact('profiles'));
     }
 
     /**
@@ -93,18 +84,12 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try {
-            if ($request->hasfile('images')) {
-                $imageName = $request->images->getClientOriginalName();
-
-                $request->images->move(public_path('adminassets/img'), $imageName);
-                $request['image'] = $imageName;
-            }
-            $this->ournews->find($id)->update($request->except("_token", "images"));
-            return redirect()->route('admin.news');
-        } catch (\Exception $e) {
-            return redirect()->back();
-        }
+        // try {
+        //     $this->profile->update($request->except("_token"));
+        //     return redirect()->back();
+        // } catch (\Exception $e) {
+        //     return redirect()->back();
+        // }
     }
 
     /**
@@ -115,11 +100,6 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        try {
-            $this->ournews->find($id)->delete();
-            return redirect()->back();
-        } catch (\Exception $e) {
-            return redirect()->back();
-        }
+        //
     }
 }

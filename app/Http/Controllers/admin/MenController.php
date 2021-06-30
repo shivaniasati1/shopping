@@ -4,22 +4,29 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Men;
 
 class MenController extends Controller
 {
+    public function __construct(Men $men)
+    {
+        $this->men = $men;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function men()
-    {
-        return view('admin.mens.menproduct');
-    }
 
     public function index()
     {
-        return view('admin.mens.addproduct');
+        try {
+            // $data = json_decode('additional', true);
+            $mens = $this->men->get();
+            return view('admin.mens.menproduct', compact('mens'));
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -29,7 +36,11 @@ class MenController extends Controller
      */
     public function create()
     {
-        //
+        try {
+            return view('admin.mens.addproduct');
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -40,7 +51,15 @@ class MenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only('composition', 'size', 'color', 'brand');
+        // dd($data);
+        $request['additional'] = json_encode($data);
+
+        $imageName = $request->images->getClientOriginalName();
+        $request->images->move(public_path('assets/images/shop'), $imageName);
+        $request['image'] = $imageName;
+        $this->men->create($request->except("_token", "images", "composition", "size", "color", "brand"));
+        return redirect()->route('men.index');
     }
 
     /**
@@ -62,7 +81,12 @@ class MenController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $mens = $this->men->find($id);
+            return view('admin.mens.addproduct', compact('mens'));
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -74,7 +98,17 @@ class MenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            if ($request->hasFile('images')) {
+                $imageName = $request->images->getClientOriginalName();
+                $request->images->move(public_path('assets/images/shop'), $imageName);
+                $request['image'] = $imageName;
+            }
+            $this->men->find($id)->update($request->except("_token", "images", "composition", "size", "color", "brand"));
+            return redirect()->route('men.index');
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -85,6 +119,11 @@ class MenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $this->men->find($id)->delete();
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
     }
 }

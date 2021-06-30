@@ -23,7 +23,7 @@
                 <div class="card-icon">
                   <i class="material-icons">person</i>
                 </div>
-                <a class="card-category"  href="{{route('admin.profile')}}">Admin Profile</a>
+                <a class="card-category"  href="{{route('profile.index')}}">Admin Profile</a>
                 <h3 class="card-title">1</h3>
               </div>
               <div class="card-footer">
@@ -39,7 +39,7 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <a class="card-category" href="{{route('admin.addbanner')}}">Banners</a>
+              <a class="card-category" href="{{route('banner.index')}}">Banners</a>
               <h3 class="card-title">
                 <small>10</small>
               </h3>
@@ -57,7 +57,7 @@
               <div class="card-icon">
                 <i class="material-icons">library_books</i>
               </div>
-              <a class="card-category"  href="{{route('admin.blogs')}}">Blogs</a>
+              <a class="card-category"  href="{{route('blog.ind')}}">Blogs</a>
               <h3 class="card-title">$34,245</h3>
             </div>
             <div class="card-footer">
@@ -73,7 +73,7 @@
               <div class="card-icon">
                 <i class="material-icons">shopping_bag</i>
               </div>
-              <a class="card-category"  href="{{route('admin.mens')}}">Mens Products</a>
+              <a class="card-category"  href="{{route('men.index')}}">Mens Products</a>
               <h3 class="card-title">75</h3>
             </div>
             <div class="card-footer">
@@ -89,7 +89,7 @@
                 <div class="card-icon">
                   <i class="material-icons">shopping_cart</i>
                 </div>
-                <a class="card-category"  href="{{route('admin.womens')}}">Womens Products</a>
+                <a class="card-category"  href="{{route('women.index')}}">Womens Products</a>
                 <h3 class="card-title">75</h3>
               </div>
               <div class="card-footer">
@@ -121,7 +121,7 @@
                 <div class="card-icon">
                   <i class="material-icons">bubble_chart</i>
                 </div>
-                <a class="card-category"  href="{{route('admin.addlogos')}}">Client Logos</a>
+                <a class="card-category"  href="{{route('client.index')}}">Client Logos</a>
                 <h3 class="card-title">+245</h3>
               </div>
               <div class="card-footer">

@@ -25,77 +25,53 @@
                         <div class="card-title" style="background-color: #9C27B0">
                             <ul class="nav nav-tabs" data-toggle="tabs">
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin.news')}}">news</a>
+                                <a class="nav-link" href="{{route('admin.news')}}">News</a>
                                 </li>
                                 <li class="nav-item">
                                 <a class="nav-link" href="{{route('admin.addnew')}}">Add news</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="card-header">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center"><b>Id</b></th>
-                                            <th><b>Image</b></th>
-                                            <th class="text-center"><b>Title</b></th>
-                                            <th class="text-center"><b>short_des</b></th>
-                                            <th><b>Description</b></th>
-                                            <th class="text-center"><b>Action</b></th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                            <td class="text-center">1</td>
-                                            <td>Internet Explorer</td>
-                                            <td class="text-center">Mac OS </td>
-                                            <td class="text-center">Lorem porro vel.</td>
-                                            <td>Lorem magnam!</td>
-                                            <td class="text-center">
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">2</td>
-                                            <td>IE Mobile</td>
-                                            <td class="text-center">Windows Mobile 6</td>
-                                            <td class="text-center">news page </td>
-                                            <td>all news show </td>
-                                            <td class="text-center">
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">3</td>
-                                            <td>PSP browser</td>
-                                            <td class="text-center">PSP</td>
-                                            <td class="text-center">-</td>
-                                            <td>all details </td>
-                                            <td class="text-center">
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">4</td>
-                                            <td>All others</td>
-                                            <td class="text-center">ecommerce site</td>
-                                            <td class="text-center">blogs and banner</td>
-                                            <td>this site</td>
-                                            <td class="text-center">
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                                <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                            </td>
-                                        </tr>
-                                </table>
-                            </div>
+                        <div class="card-header ">
+                            {{-- <div class="container-fluid no-padding">
+                                <div class="row"> --}}
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center"><b>Id</b></th>
+                                                    <th class="text-center"><b>Image</b></th>
+                                                    <th class="text-center"><b>Title</b></th>
+                                                    <th class="text-center"><b>short_des</b></th>
+                                                    <th><b>Description</b></th>
+                                                    <th class="text-center"><b>Action</b></th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                  @foreach ($alldata as $value)
+                                                  <tr>
+                                                    <td class="text-center">{{$value->id}}</td>
+                                                    <td class="text-center">
+                                                        <img src="{{ URL::to('/') }}/adminassets/img/{{ $value->image }}" height="100" width="150"/>
+                                                    </td>
+                                                    <td class="text-center">{{$value->title}}</td>
+                                                    <td class="text-center">{{$value->short_des}}</td>
+                                                    <td>{{$value->description}}</td>
+                                                    <td class="text-center">
+                                                        <a href="{{route('admin.edit',$value->id)}}" type="submit" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-danger"></i></a>
+                                                        <form action="{{route('admin.destroy',$value->id)}}" method="POST" >
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" data-toggle="tooltip" title="" data-original-title="delete" class=" border-0 bg-transparent"><i class="fa fa-trash text-success"></i></button>
+                                                        </form>
+                                                    </td>
+                                                  </tr>
+                                                  @endforeach
+                                              </tbody>
+                                        </table>
+                                    </div>
+                                {{-- </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

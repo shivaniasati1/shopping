@@ -7,10 +7,10 @@
             <div class="card-header" style="background-color: #9C27B0">
                 <ul class="nav nav-tabs" data-toggle="tabs">
                     <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.womens')}}">Blog</a>
+                    <a class="nav-link" href="{{route('women.index')}}">Product</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.addwomen')}}">Add Blog</a>
+                    <a class="nav-link" href="{{route('women.create')}}">Add Product</a>
                     </li>
                 </ul>
             </div>
@@ -18,7 +18,11 @@
                 <div class="card-header bg-light">
                     <h4>Add Product</h4>
                 </div>
-                <form method="post" action="" class="p-4">
+                <form method="post" action="{{isset($women)? route('women.update',$women->id) : route('women.store')}}" enctype="multipart/form-data" class="p-4">
+                    @csrf
+                    @if(isset($women))
+                    @method('put')
+                    @endif
                     {{-- <div class="form-group">
                         <div class="profile-images-card"> --}}
                             <div class="card" style="height:200px; width:200px">
@@ -26,60 +30,60 @@
                             </div>
                             <div class="custom-file">
                                 {{-- <label>Upload Profile</label> --}}
-                                <input type="file" id="fileupload" name="image">
+                                <input type="file" id="fileupload" name="images">
                             </div>
                         {{-- </div>
                     </div> --}}
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user px-2 py-2"> </i></span>
-                            <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                            <input type="text" name="name" value="{{isset($women) ? $women->name : ''}}" class="form-control" placeholder="Enter Name">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-shopping-bag px-2 py-2"></i></span>
-                            <input type="text" name="categories" class="form-control" placeholder="Enter categories">
+                            <input type="text" name="categories" value="{{isset($women) ? $women->categories : ''}}" class="form-control" placeholder="Enter categories">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-google-wallet px-2 py-2"></i></span>
-                            <input type="text" name="price" class="form-control" placeholder="Enter price">
+                            <input type="text" name="price" value="{{isset($women) ? $women->price : ''}}" class="form-control" placeholder="Enter price">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-file-text px-2 py-2"></i></span>
-                            <input type="text" name="composition" class="form-control" placeholder="Enter composition">
+                            <input type="text" name="composition" value="{{--isset($women) ? $women->composition : ''--}}" class="form-control" placeholder="Enter composition">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-file-text px-2 py-2"></i></span>
-                            <input type="text" name="size" class="form-control" placeholder="Enter size">
+                            <input type="text" name="size" value="{{--isset($women) ? $women->size : ''--}}" class="form-control" placeholder="Enter size">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-file-text px-2 py-2"></i></span>
-                            <input type="text" name="color" class="form-control" placeholder="Enter color">
+                            <input type="text" name="color" value="{{--isset($women) ? $women->color : ''--}}" class="form-control" placeholder="Enter color">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-file px-2 py-2"></i></span>
-                            <input type="text" name="brand" class="form-control" placeholder="Enter brand">
+                            <input type="text" name="brand" value="{{--isset($women) ? $women->brand : ''--}}" class="form-control" placeholder="Enter brand">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-file-text px-2 py-2"></i></span>
-                            <input type="text" name="description" class="form-control" placeholder="Enter description">
+                            <input type="text" name="description" value="{{isset($women) ? $women->description : ''}}" class="form-control" placeholder="Enter description">
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" name="submit" class="btn btn-sm btn-danger"><i class="fa fa-Update"></i> Add</button>
+                        <button type="submit" class="btn btn-sm btn-danger">{{isset($women) ? 'update' : 'add'}}</button>
                     </div>
                 </form>
             </div>

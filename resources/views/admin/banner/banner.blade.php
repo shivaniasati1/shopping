@@ -1,4 +1,5 @@
 @extends('layouts.adminapp')
+@section('title','Banner')
 
 @section('content')
     <div class="content">
@@ -6,7 +7,7 @@
             <div class="container-fluid">
               <div class="row mb-2">
                 <div class="col-sm-6">
-                  <h3>DataTables</h3>
+                  <h3>Banners</h3>
                 </div>
                 <div class="col-sm-6">
                   <ol class="breadcrumb float-sm-right">
@@ -24,88 +25,47 @@
                         <div class="card-title" style="background-color: #9C27B0">
                             <ul class="nav nav-tabs" data-toggle="tabs">
                                 <li class="nav-item">
-                                <a class="nav-link active" href="{{--route('admin.addbanner')--}}">Banner</a>
+                                <a class="nav-link" href="{{route('banner.index')}}">Banner</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{--route('admin.addbanner')--}}">Add Banner</a>
+                                <a class="nav-link" href="{{route('banner.create')}}">Add Banner</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th><b>Id</b></th>
-                                        <th><b>Image</b></th>
-                                        <th class="text-center"><b>Title</b></th>
-                                        <th class="text-center"><b>Author Name</b></th>
-                                        <th><b>Description</b></th>
-                                        <th class="text-center"><b>Action</b></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Tasman</td>
-                                        <td>Internet Explorer 5.1</td>
-                                        <td class="text-center">Mac OS 7.6-9</td>
-                                        <td class="text-center">1</td>
-                                        <td>C</td>
-                                        <td class="text-center">
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tasman</td>
-                                        <td>Internet Explorer 5.2</td>
-                                        <td class="text-center">Mac OS 8-X</td>
-                                        <td class="text-center">1</td>
-                                        <td>C</td>
-                                        <td class="text-center">
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>IE Mobile</td>
-                                        <td class="text-center">Windows Mobile 6</td>
-                                        <td class="text-center">-</td>
-                                        <td>C</td>
-                                        <td class="text-center">
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Misc</td>
-                                        <td>PSP browser</td>
-                                        <td class="text-center">PSP</td>
-                                        <td class="text-center">-</td>
-                                        <td>C</td>
-                                        <td class="text-center">
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Other browsers</td>
-                                        <td>All others</td>
-                                        <td class="text-center">-</td>
-                                        <td class="text-center">-</td>
-                                        <td>U</td>
-                                        <td class="text-center">
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="view"><i class="fa fa-eye text-danger"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                            <a href="" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center"><b>Id</b></th>
+                                            <th class="text-center"><b>Image</b></th>
+                                            <th class="text-center"><b>Link</b></th>
+                                            <th class="text-center"><b>Sequence</b></th>
+                                            <th class="text-center"><b>Action</b></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($banners as $banner)
+                                            <tr>
+                                                <td class="text-center">{{$banner->id}}</td>
+                                                <td class="text-center">
+                                                    <img height="100" width="150" src="{{URL::to('/')}}/adminassets/img/{{$banner->image}}" alt="no image"/>
+                                                </td>
+                                                <td class="text-center">{{$banner->link}}</td>
+                                                <td class="text-center">{{$banner->sequence}}</td>
+                                                <td class="text-center">
+                                                    <a href="{{route('banner.edit',$banner->id)}}" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
+                                                    <form action="{{route('banner.destroy',$banner->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="border-0 bg-transparent" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

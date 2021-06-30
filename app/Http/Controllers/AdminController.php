@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function profiles()
-    {
-        return view('admin.adminprofile');
-    }
+    // public function profiles()
+    // {
+    //     return view('admin.adminprofile');
+    // }
 }

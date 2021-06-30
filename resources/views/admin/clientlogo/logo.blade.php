@@ -1,5 +1,5 @@
 @extends('layouts.adminapp')
-@section('title','All Blogs')
+@section('title','Client Logo')
 
 @section('content')
     <div class="content">
@@ -7,12 +7,12 @@
             <div class="container-fluid">
               <div class="row mb-2">
                 <div class="col-sm-6">
-                  <h3>All Data</h3>
+                  <h3>Banners</h3>
                 </div>
                 <div class="col-sm-6">
                   <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Blogs</li>
+                    <li class="breadcrumb-item active">Banner</li>
                   </ol>
                 </div>
               </div>
@@ -25,10 +25,10 @@
                         <div class="card-title" style="background-color: #9C27B0">
                             <ul class="nav nav-tabs" data-toggle="tabs">
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{route('blog.ind')}}">Blog</a>
+                                <a class="nav-link" href="{{route('client.index')}}">Logo</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link" href="{{route('blog.cre')}}">Add Blog</a>
+                                <a class="nav-link" href="{{route('client.create')}}">Add Logo</a>
                                 </li>
                             </ul>
                         </div>
@@ -39,30 +39,26 @@
                                         <tr>
                                             <th class="text-center"><b>Id</b></th>
                                             <th class="text-center"><b>Image</b></th>
-                                            <th class="text-center"><b>Title</b></th>
-                                            <th class="text-center"><b>Author Name</b></th>
-                                            <th><b>Description</b></th>
-                                            <th class="text-center"><b>Date</b></th>
+                                            <th class="text-center"><b>Link</b></th>
+                                            {{-- <th class="text-center"><b>Sequence</b></th> --}}
                                             <th class="text-center"><b>Action</b></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($blogs as $blog)
+                                        @foreach ($logos as $logo)
                                         <tr>
-                                            <td class="text-center">{{$blog->id}}</td>
+                                            <td class="text-center">{{$logo->id}}</td>
                                             <td class="text-center">
-                                                <img src="{{URL::to('/')}}/assets/images/{{$blog->image}}" width="100" height="100" alt="">
+                                                <img src="{{URL::to('/')}}/assets/images/{{$logo->image}}" width="120" height="100" alt="">
                                             </td>
-                                            <td class="text-center">{{$blog->title}}</td>
-                                            <td class="text-center">{{$blog->author_name}}</td>
-                                            <td>{{$blog->description}}</td>
-                                            <td class="text-center">{{$blog->created_at->toFormattedDateString()}}</td>
+                                            <td class="text-center">{{$logo->link}}</td>
+                                            {{-- <td class="text-center">cnsk</td> --}}
                                             <td class="text-center">
-                                                <a href="{{route('blog.edit',$blog->id)}}" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
-                                                <form action="{{route('blog.delete',$blog->id)}}" method="POST">
+                                                <a href="{{route('client.edit',$logo->id)}}" data-toggle="tooltip" title="" data-original-title="edit"><i class="fa fa-edit text-warning"></i></a>
+                                                <form action="{{route('client.delete',$logo->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
-                                                <button href="" data-toggle="tooltip" class="border-0 bg-transparent" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></button>
+                                                    <button type="submit" class="border-0 bg-transparent" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash text-success"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
