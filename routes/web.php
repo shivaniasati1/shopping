@@ -42,7 +42,7 @@ Route::get('mens', [HomeController::class, 'menshow'])->name('men');
 Route::get('womens', [HomeController::class, 'womenshow'])->name('women');
 Route::get('details', [HomeController::class, 'productdetail'])->name('detail');
 Route::get('/blogs', [HomeController::class, 'blogshow'])->name('blog');
-Route::get('/blogdetails', [HomeController::class, 'blogdetail'])->name('blogdetail');
+Route::get('blogdetail', [HomeController::class, 'blogdetail'])->name('blogdetail');
 /* ----- all home routes end ------- */
 
 /* ----- all admin routes start ------- */

@@ -1,3 +1,7 @@
+{{-- <?php
+use App\Http\Controllers\HomeController;
+$total = HomeController::cartItem();
+?> --}}
 <nav class="navbar navbar-custom navbar-fixed-top navbar-dark" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -148,6 +152,9 @@
                   <li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
                 </ul> -->
               </li>
+
+              <li ><a href="">cart{{--$total--}}</a>
+              </li>
               <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="fa fa-user"></i></a>
                 {{-- <ul class="dropdown-menu" role="menu">
                   <li><a href="#">Login</a></li>
@@ -247,7 +254,7 @@
               <!--                    |-->
               <!--                    button.search-btn(type='submit')-->
               <!--                        i.fa.fa-search-->
-              <!-- <li class="dropdown"><a class="dropdown-toggle" href="documentation.html" data-toggle="dropdown">Documentation</a>
+              {{-- <li class="dropdown"><a class="dropdown-toggle" href="documentation.html" data-toggle="dropdown">Documentation</a>
                 <ul class="dropdown-menu">
                   <li><a href="documentation.html#contact">Contact Form</a></li>
                   <li><a href="documentation.html#reservation">Reservation Form</a></li>
@@ -256,7 +263,7 @@
                   <li><a href="documentation.html#plugin">Plugins</a></li>
                   <li><a href="documentation.html#changelog">Changelog</a></li>
                 </ul>
-              </li> -->
+              </li> --}}
             </ul>
           </div>
         </div>

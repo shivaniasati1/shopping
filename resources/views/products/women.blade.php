@@ -53,70 +53,73 @@
     <section class="module-small">
         <div class="container">
         <div class="row multi-columns-row">
+            @foreach ($womens as $women)
             <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="shop-item">
-                <div class="shop-item-image"><img src="{{asset('assets/images/shop/pro7.jpg')}}" alt="Accessories Pack"/>
-                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                <div class="shop-item">
+                    <div class="shop-item-image"><img src="{{URL::to('/')}}/assets/images/shop/{{$women->image}}" alt="Accessories Pack"/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                    </div>
+                    <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">{{$women->name}}</a></h4>£{{$women->price}}
                 </div>
-                <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Accessories Pack</a></h4>£9.00
             </div>
-            </div>
-            <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="shop-item">
-                <div class="shop-item-image"><img src="{{asset('assets/images/shop/pro11.jpg')}}" alt="Men’s Casual Pack"/>
-                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+            @endforeach
+
+            {{-- <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="shop-item">
+                    <div class="shop-item-image"><img src="{{asset('assets/images/shop/pro11.jpg')}}" alt="Men’s Casual Pack"/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                    </div>
+                    <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Men’s Casual Pack</a></h4>£12.00
                 </div>
-                <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Men’s Casual Pack</a></h4>£12.00
-            </div>
-            </div>
-            <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="shop-item">
-                <div class="shop-item-image"><img src="{{asset('assets/images/shop/pic.jpg')}}" alt="Men’s Garb"/>
-                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
-                </div>
-                <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Men’s Garb</a></h4>£6.00
-            </div>
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="shop-item">
-                <div class="shop-item-image"><img src="{{asset('assets/images/shop/pro3.jpg')}}" alt="Cold Garb"/>
-                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                <div class="shop-item">
+                    <div class="shop-item-image"><img src="{{asset('assets/images/shop/pic.jpg')}}" alt="Men’s Garb"/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                    </div>
+                    <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Men’s Garb</a></h4>£6.00
                 </div>
-                <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Cold Garb</a></h4>£14.00
-            </div>
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="shop-item">
-                <div class="shop-item-image"><img src="{{asset('assets/images/shop/product3.jpg')}}" alt="Accessories Pack"/>
-                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                <div class="shop-item">
+                    <div class="shop-item-image"><img src="{{asset('assets/images/shop/pro3.jpg')}}" alt="Cold Garb"/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                    </div>
+                    <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Cold Garb</a></h4>£14.00
                 </div>
-                <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Accessories Pack</a></h4>£9.00
-            </div>
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="shop-item">
-                <div class="shop-item-image"><img src="{{asset('assets/images/shop/bag.png')}}" alt="Men’s Casual Pack"/>
-                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                <div class="shop-item">
+                    <div class="shop-item-image"><img src="{{asset('assets/images/shop/product3.jpg')}}" alt="Accessories Pack"/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                    </div>
+                    <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Accessories Pack</a></h4>£9.00
                 </div>
-                <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Men’s Casual Pack</a></h4>£12.00
-            </div>
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="shop-item">
-                <div class="shop-item-image"><img src="{{asset('assets/images/shop/shoes2.jpg')}}" alt="Men’s Garb"/>
-                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                <div class="shop-item">
+                    <div class="shop-item-image"><img src="{{asset('assets/images/shop/bag.png')}}" alt="Men’s Casual Pack"/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                    </div>
+                    <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Men’s Casual Pack</a></h4>£12.00
                 </div>
-                <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Men’s Garb</a></h4>£6.00
-            </div>
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3">
-            <div class="shop-item">
-                <div class="shop-item-image"><img src="{{asset('assets/images/shop/watch2.jpg')}}" alt="Cold Garb"/>
-                <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                <div class="shop-item">
+                    <div class="shop-item-image"><img src="{{asset('assets/images/shop/shoes2.jpg')}}" alt="Men’s Garb"/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                    </div>
+                    <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Men’s Garb</a></h4>£6.00
                 </div>
-                <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Cold Garb</a></h4>£14.00
             </div>
-            </div>
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="shop-item">
+                    <div class="shop-item-image"><img src="{{asset('assets/images/shop/watch2.jpg')}}" alt="Cold Garb"/>
+                    <div class="shop-item-detail"><a class="btn btn-round btn-b"><span class="icon-basket">Add To Cart</span></a></div>
+                    </div>
+                    <h4 class="shop-item-title font-alt"><a href="{{route('detail')}}">Cold Garb</a></h4>£14.00
+                </div>
+            </div> --}}
         </div>
         <div class="row">
             <div class="col-sm-12">

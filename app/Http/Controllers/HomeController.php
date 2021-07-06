@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
+use App\Models\Men;
+use App\Models\Women;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -53,12 +58,14 @@ class HomeController extends Controller
 
     public function menshow()
     {
-        return view('products.men');
+        $mens = Men::all();
+        return view('products.men', compact('mens'));
     }
 
     public function womenshow()
     {
-        return view('products.women');
+        $womens = Women::all();
+        return view('products.women', compact('womens'));
     }
 
     public function productdetail()
@@ -68,11 +75,31 @@ class HomeController extends Controller
 
     public function blogshow()
     {
-        return view('blogs.blogshow');
+        $blogs = Blog::all();
+        return view('blogs.blogshow', compact('blogs'));
     }
 
     public function blogdetail()
     {
-        return view('blogs.detail');
+        $blogs = Blog::get();
+        return view('blogs.detail', compact('blogs'));
     }
+    // public function addtocart(Request $req)
+    // {
+    //     if ($req->session()->has('user')) {
+    //         $cart = new Cart;
+    //         $cart->user_id = $req->session()->get('user')['id'];
+    //         $cart->men_id = $req->men_id;
+    //         $cart->women_id = $req->women_id;
+    //         $cart->save();
+    //         return redirect()->back();
+    //     } else {
+    //         return redirect()->back();
+    //     }
+    // }
+    // static function cartItem()
+    // {
+    //     $userid = Session::get('user')['id'];
+    //     return Cart::where('user_id', $userid)->count();
+    // }
 }
